@@ -251,3 +251,31 @@ let itemsArray = localStorage.getItem('items')
 
 # CONCLUSION
 In this tutorial, we learned how to make a simple to-do based application that can potentially be used to keep quick notes as a new tab page by using HTML5 web storage (local storage) and how to integrate it into a simple app.
+
+----------------------------------------------
+
+We're going to make a very simple web app with plain JavaScript that will retrieve information from an API and display it on the page.
+There will be no server, dependencies, build tools, or complex . This is absolutely for beginners.
+
+We are going to write from scratch this simple web app that connects to a *Studio Ghibli API*, retrieves the data with JavaScript, and displays it on the front end of a website. This is not meant to be an extensive resource on APIs or REST - just the simplest possible example to get up and running that you can build from in the future. We'll learn:
+
+- What a *Web API* is.
+- Learn how to use the *HTTP* request *GET* with JavaScript
+- How create and display *HTML* elements with JavaScrip.
+
+# QUICK OVERVIEW
+
+API stands for Application Program Interface, which can be defined as a set of methods of communication between various software components. In other words, an API allows software to communicate with another software.
+
+We'll be focusing specifically on Web APIs, which allow a web server to interact with third-party software. In this case, the web server is using HTTP requests to communicate to a publicly available URL endpoint containing JSON data. If this is confusing now, it will make sense by the end of the article.
+
+You may be familiar with the concept of a CRUD app, which stands for Create, Read, Update, Delete. Any programming language can be used to make a CRUD app with various methods. A web API uses HTTP requests that correspond to the CRUD verbs.
+
+| Action  | HTTP Method | Description 
+| ------------- | ------------- | ------------- |
+| Create  | POST  | Creates a new resource
+| Read  | GET  | Retrieves a resource 
+| Update  | PUT/PATCH  | Updates an existing resource 
+| Delete  | DELETE  | Deletes a resource 
+
+If you've heard REST and RESTful APIs, that is simply referring to a set of standards that conform to a specific architectural style. Most web apps do, or aim to conform to REST standards. Overall, there are a lot of terms, acronyms and concepts to understand - HTTP, API, REST - so it's normal to feel confused and frustrated, especially when API documentation assumes you already know what to do.
