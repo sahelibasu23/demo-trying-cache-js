@@ -207,7 +207,12 @@ data.forEach((item) => {
 ```
 Lastly, we'll add a click event to the button that will clear all data from localStorage, as well as removing every child node from the ul.
 ```
-
+button.addEventListener('click', function () {
+  localStorage.clear()
+  while (ul.firstChild) {
+    ul.removeChild(ul.firstChild)
+  }
+})
 ```
 If all went well, everything will save to storage as well as appear on the front end, which you can check by testing localStorage in the console.
 
@@ -217,12 +222,13 @@ There's one final problem: after closing the browser or reloading the page, all 
 
 Our itemsArray is being reset to an empty array every time the script runs. We could fix this by making a conditional statement that checks if localStorage already exists, such as in the below example.
 ```
-button.addEventListener('click', function () {
-  localStorage.clear()
-  while (ul.firstChild) {
-    ul.removeChild(ul.firstChild)
-  }
-})
+let items
+
+if (localStorage.getItem('items')) {
+  items = JSON.parse(localStorage.getItem('items'))
+} else {
+  items = []
+}
 ```
 A little more concise would be to use a ternary operator to do the same thing.
 ```
