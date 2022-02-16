@@ -15,7 +15,7 @@ More contents coming soon!
 
 ## REST API Reference
 
-[Resource 1](https://www.redhat.com/en/topics/api/what-is-a-rest-api)
-[Resource 2](https://restfulapi.net/)
-[Resource 3](https://www.mulesoft.com/resources/api/what-is-rest-api-design)
+- [Resource 1](https://www.redhat.com/en/topics/api/what-is-a-rest-api)
+- [Resource 2](https://restfulapi.net/)
+- [Resource 3](https://www.mulesoft.com/resources/api/what-is-rest-api-design)
 
