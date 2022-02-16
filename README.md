@@ -10,3 +10,5 @@ More contents coming soon!
 [Reference](https://github.com/sahelibasu23/demo-trying-cache-js/blob/main/notes/YTA.md)
 
 [Web API](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Client-side_web_APIs/Introduction)
+
+[Client-side storage](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Client-side_web_APIs/Client-side_storage)
