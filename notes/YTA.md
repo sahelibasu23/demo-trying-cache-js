@@ -47,7 +47,7 @@ Adding some data to localStorage is as easy as using the setItem() method.
 
 I'll use a generic key and value for the names, but they can be any strings.
 
-`localStorage.setItem('key', 'value')`
+#### localStorage.setItem('key', 'value')
 
 Now if you test localStorage in the console again, you'll find your new key and value.
 
@@ -55,16 +55,16 @@ Now if you test localStorage in the console again, you'll find your new key and 
 
 If you want to get the value for a particular key, you'll use the getItem() method.
 
-`localStorage.getItem('key')`
-value
+#### localStorage.getItem('key')
+`value`
 
 Finally, you can remove the data with removeItem().
 
-`localStorage.removeItem('key')`
+#### localStorage.removeItem('key')
 
 Using clear() will clear all local storage.
 
-`localStorage.clear()`
+#### localStorage.clear()
 
 Now we can begin setting up the app.
 
