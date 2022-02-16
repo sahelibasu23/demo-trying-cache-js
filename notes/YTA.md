@@ -69,7 +69,7 @@ Using `clear()` will clear all local storage.
 Now we can begin setting up the app.
 
 ## Setting up the front end
-First, we'll create a simple HTML front end with index.html. 
+First, we'll create a simple HTML front end with *index.html*. 
 
 ### Setup the Frontend
 
@@ -145,9 +145,9 @@ const liMaker = (text) => {
 We're going to add an event listener to the form that watches for a submit event - which will be any time we press enter on the form. 
 The `e.preventDefault()` will prevent the form from the default submit action, which we don't want, since we're not sending any data to a server.
 
-Instead, the form will submit the value of the input. 
-We're going to call the `liMaker()` function, which will create the item with the text of the input value and append it to the DOM. 
-Finally, we'll set the input value to an empty string so you don't have to erase the last item entered manually.
+Instead, the form will submit the value of the `input`. 
+We're going to call the `liMaker()` function, which will create the item with the text of the `input` value and append it to the DOM. 
+Finally, we'll set the `input` value to an empty string so you don't have to erase the last item entered manually.
 ```
 form.addEventListener('submit', function (e) {
   e.preventDefault()
@@ -172,7 +172,7 @@ The final step is to integrate it into local storage so that the data persists.
 
 ### Integrating local storage
 
-Now we're going to add a few more bits of functionality to the app. First, every time the form is submitted, the input value should be added to the `localStorage` as well as appear on the front end. We'll also want to loop through all the existing local storage items and display them at the top of the list. Last, we want the "Clear All" button to remove all items from local storage as well as the front end.
+Now we're going to add a few more bits of functionality to the app. First, every time the form is submitted, the `input` value should be added to the `localStorage` as well as appear on the front end. We'll also want to loop through all the existing local storage items and display them at the top of the list. Last, we want the "Clear All" button to remove all items from local storage as well as the front end.
 
 Let's create an empty array to start, and create a `localStorage` key called "items". 
 Now, `localStorage` only supports strings as values, and want to store our to-dos in an array.
@@ -189,7 +189,7 @@ localStorage.setItem('items', JSON.stringify(itemsArray))
 const data = JSON.parse(localStorage.getItem('items'))
 ```
 
-In the form event listener, let's push any new input value into the array, then set the `localStorage` to the new, updated value.
+In the form event listener, let's push any new `input` value into the array, then set the `localStorage` to the new, updated value.
 
 ```
 // form event listener here
@@ -230,7 +230,7 @@ if (localStorage.getItem('items')) {
   items = []
 }
 ```
-A little more concise would be to use a ternary operator to do the same thing.
+A little more concise would be to use a *ternary operator* to do the same thing.
 ```
 let items
 
