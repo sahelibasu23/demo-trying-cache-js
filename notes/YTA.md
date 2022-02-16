@@ -43,33 +43,33 @@ You can test out what's in local storage by going to the JavaScript console and 
 #### localStorage
 `Storage {length: 0}`
 
-Adding some data to localStorage is as easy as using the setItem() method. 
+Adding some data to `localStorage` is as easy as using the `setItem()` method. 
 
 I'll use a generic key and value for the names, but they can be any strings.
 
 #### localStorage.setItem('key', 'value')
 
-Now if you test localStorage in the console again, you'll find your new key and value.
+Now if you test `localStorage` in the console again, you'll find your new key and value.
 
 `Storage {key: "value", length: 1}`
 
-If you want to get the value for a particular key, you'll use the getItem() method.
+If you want to get the value for a particular key, you'll use the `getItem()` method.
 
 #### localStorage.getItem('key')
 `value`
 
-Finally, you can remove the data with removeItem().
+Finally, you can remove the data with `removeItem()`.
 
 #### localStorage.removeItem('key')
 
-Using clear() will clear all local storage.
+Using `clear()` will clear all local storage.
 
 #### localStorage.clear()
 
 Now we can begin setting up the app.
 
 ## Setting up the front end
-First, we'll create a simple HTML front end with index.html. I'm loading in Primitive (my minimalist CSS framework) for styles, because that's what I always use when I need a quick front end.
+First, we'll create a simple HTML front end with index.html. 
 
 ### Setup the Frontend
 
@@ -97,7 +97,7 @@ First, we'll create a simple HTML front end with index.html. I'm loading in Prim
       <!-- Add code here -->
     </div>
 
-    <script src="js/scripts.js"></script>
+    <script src="script.js"></script>
   </body>
 </html>
 ```
@@ -113,7 +113,7 @@ We're going to set up with three things:
   <input id="item" type="text" placeholder="New" required />
 </form>
 
-<h2>Items</h2>
+<h2>List of items : </h2>
 <ul></ul>
 
 <button>Clear All</button>
@@ -133,8 +133,8 @@ const ul = document.querySelector('ul')
 const button = document.querySelector('button')
 const input = document.getElementById('item')
 ```
-Next, we are going to make a function that creates an li element, since we'll be doing that more than once. 
-We'll call the function liMaker(). It just creates an li element, sets the text of the element to the parameter, and appends the list item to the ul.
+Next, we are going to make a function that creates an `li` element, since we'll be doing that more than once. 
+We'll call the function `liMaker()`. It just creates an `li` element, sets the text of the element to the parameter, and appends the list item to the `ul`.
 ```
 const liMaker = (text) => {
   const li = document.createElement('li')
@@ -143,10 +143,10 @@ const liMaker = (text) => {
 }
 ```
 We're going to add an event listener to the form that watches for a submit event - which will be any time we press enter on the form. 
-The e.preventDefault() will prevent the form from the default submit action, which we don't want, since we're not sending any data to a server.
+The `e.preventDefault()` will prevent the form from the default submit action, which we don't want, since we're not sending any data to a server.
 
 Instead, the form will submit the value of the input. 
-We're going to call the liMaker() function, which will create the item with the text of the input value and append it to the DOM. 
+We're going to call the `liMaker()` function, which will create the item with the text of the input value and append it to the DOM. 
 Finally, we'll set the input value to an empty string so you don't have to erase the last item entered manually.
 ```
 form.addEventListener('submit', function (e) {
@@ -163,22 +163,22 @@ The final step is to integrate it into local storage so that the data persists.
 ### Integrating local storage
 
 We are going to add an event listener to the form that watches for a submit event - which will be any time we press enter on the form. 
-The e.preventDefault() will prevent the form from the default submit action, which we don't want, since we're not sending any data to a server.
+The `e.preventDefault()` will prevent the form from the default submit action, which we don't want, since we're not sending any data to a server.
 
-Instead, the form will submit the value of the input. We're going to call the liMaker() function, which will create the item with the text of the input value and append it to the DOM. Finally, we'll set the input value to an empty string so you don't have to erase the last item entered manually.
+Instead, the form will submit the value of the input. We're going to call the `liMaker()` function, which will create the item with the text of the input value and append it to the DOM. Finally, we'll set the input value to an empty string so you don't have to erase the last item entered manually.
 
 Since we're not saving the items anywhere, when we close or refresh the browser, the items will be gone. 
 The final step is to integrate it into local storage so that the data persists.
 
 ### Integrating local storage
 
-Now we're going to add a few more bits of functionality to the app. First, every time the form is submitted, the input value should be added to the localStorage as well as appear on the front end. We'll also want to loop through all the existing local storage items and display them at the top of the list. Last, we want the "Clear All" button to remove all items from local storage as well as the front end.
+Now we're going to add a few more bits of functionality to the app. First, every time the form is submitted, the input value should be added to the `localStorage` as well as appear on the front end. We'll also want to loop through all the existing local storage items and display them at the top of the list. Last, we want the "Clear All" button to remove all items from local storage as well as the front end.
 
-Let's create an empty array to start, and create a localStorage key called "items". 
-Now, localStorage only supports strings as values, and want to store our to-dos in an array.
+Let's create an empty array to start, and create a `localStorage` key called "items". 
+Now, `localStorage` only supports strings as values, and want to store our to-dos in an array.
 
-We can get around this by using JSON.stringify() to convert a data array to a string. 
-We'll use JSON.parse() to convert the contents of localStorage back into something we can work with later in the data variable. 
+We can get around this by using `JSON.stringify()` to convert a data array to a string. 
+We'll use `JSON.parse()` to convert the contents of `localStorage` back into something we can work with later in the data variable. 
 Put this code below all the constant declarations we set earlier.
 
 ```
@@ -189,7 +189,7 @@ localStorage.setItem('items', JSON.stringify(itemsArray))
 const data = JSON.parse(localStorage.getItem('items'))
 ```
 
-In the form event listener, let's push any new input value into the array, then set the localStorage to the new, updated value.
+In the form event listener, let's push any new input value into the array, then set the `localStorage` to the new, updated value.
 
 ```
 // form event listener here
@@ -198,14 +198,14 @@ e.preventDefault()
 itemsArray.push(input.value)
 localStorage.setItem('items', JSON.stringify(itemsArray))
 ```
-We're going to loop through everything in our data variable above, which contains all the existing localStorage data in a form JavaScript can understand and work with, and we'll run the liMaker() again. This will display all existing stored information on the front end every time we open the app.
+We're going to loop through everything in our data variable above, which contains all the existing `localStorage` data in a form JavaScript can understand and work with, and we'll run the `liMaker()` again. This will display all existing stored information on the front end every time we open the app.
 
 ```
 data.forEach((item) => {
   liMaker(item)
 })
 ```
-Lastly, we'll add a click event to the button that will clear all data from localStorage, as well as removing every child node from the ul.
+Lastly, we'll add a click event to the button that will clear all data from `localStorage`, as well as removing every child node from the ul.
 ```
 button.addEventListener('click', function () {
   localStorage.clear()
@@ -214,13 +214,13 @@ button.addEventListener('click', function () {
   }
 })
 ```
-If all went well, everything will save to storage as well as appear on the front end, which you can check by testing localStorage in the console.
+If all went well, everything will save to storage as well as appear on the front end, which you can check by testing `localStorage` in the console.
 
 `Storage {items: "["Welcome","to","the","App"]", length: 1}`
 
-There's one final problem: after closing the browser or reloading the page, all the existing information in localStorage is gone, and nothing remains on the front end. Why?
+There's one final problem: after closing the browser or reloading the page, all the existing information in `localStorage` is gone, and nothing remains on the front end. Why?
 
-Our itemsArray is being reset to an empty array every time the script runs. We could fix this by making a conditional statement that checks if localStorage already exists, such as in the below example.
+Our `itemsArray` is being reset to an empty array every time the script runs. We could fix this by making a conditional statement that checks if `localStorage` already exists, such as in the below example.
 ```
 let items
 
@@ -242,7 +242,7 @@ if (localStorage.getItem('items')) {
 ```
 With that, our app is complete! 
 
-Now when we enter in some information and refresh or close the browser window, the data will persist until you manually clear the data in Developer Tools (under Application -> Storage) or by running the localStorage.clear() command. 
+Now when we enter in some information and refresh or close the browser window, the data will persist until you manually clear the data in Developer Tools (under Application -> Storage) or by running the `localStorage.clear()` command. 
 ```
 let itemsArray = localStorage.getItem('items')
   ? JSON.parse(localStorage.getItem('items'))
@@ -250,4 +250,4 @@ let itemsArray = localStorage.getItem('items')
 ```
 
 # CONCLUSION
-In this tutorial, we learned how to make a simple to-do based application that can potentially be used to keep quick notes as a new tab page by using HTML5 web storage(local storage) and how to integrate it into a simple app.
+In this tutorial, we learned how to make a simple to-do based application that can potentially be used to keep quick notes as a new tab page by using HTML5 web storage (local storage) and how to integrate it into a simple app.
