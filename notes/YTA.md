@@ -127,6 +127,36 @@ First, we are going to set up some variables for the elements on the page - the 
 
 #### scripts.js
 
+```
+const form = document.querySelector('form')
+const ul = document.querySelector('ul')
+const button = document.querySelector('button')
+const input = document.getElementById('item')
+```
+Next, I'm going to make a function that creates an li element, since I'll be doing that more than once. I'll call the function liMaker(). It just creates an li element, sets the text of the element to the parameter, and appends the list item to the ul.
+```
+const liMaker = (text) => {
+  const li = document.createElement('li')
+  li.textContent = text
+  ul.appendChild(li)
+}
+```
+I'm going to add an event listener to the form that watches for a submit event - which will be any time you press enter on the form. The e.preventDefault() will prevent the form from the default submit action, which we don't want, since we're not sending any data to a server.
+
+Instead, the form will submit the value of the input. We're going to call the liMaker() function, which will create the item with the text of the input value and append it to the DOM. Finally, we'll set the input value to an empty string so you don't have to erase the last item entered manually.
+```
+form.addEventListener('submit', function (e) {
+  e.preventDefault()
+
+  liMaker(input.value)
+  input.value = ''
+})
+```
+
+Since we're not saving the items anywhere, when you close or refresh the browser, the items will be gone. The final step is to integrate it into local storage so that the data persists.
+
+### Integrating local storage
+
 We are going to add an event listener to the form that watches for a submit event - which will be any time we press enter on the form. 
 The e.preventDefault() will prevent the form from the default submit action, which we don't want, since we're not sending any data to a server.
 
