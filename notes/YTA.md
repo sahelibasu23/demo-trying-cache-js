@@ -68,16 +68,56 @@ Using clear() will clear all local storage.
 
 Now we can begin setting up the app.
 
-### Setting up the front end
+## Setting up the front end
 First, we'll create a simple HTML front end with index.html. I'm loading in Primitive (my minimalist CSS framework) for styles, because that's what I always use when I need a quick front end.
 
+### Setup the Frontend
+
 #### index.html
+
+```
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>App Name</title>
+
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/primitive-ui/dist/css/main.css"
+    />
+  </head>
+
+  <body>
+    <div class="small-container">
+      <h1>App Name</h1>
+
+      <!-- Add code here -->
+    </div>
+
+    <script src="js/scripts.js"></script>
+  </body>
+</html>
+```
 
 We're going to set up with three things:
 
 - A text input - for adding new items.
 - A list - where the items will be added on the front end.
 - A button - to clear all items.
+
+```
+<form>
+  <input id="item" type="text" placeholder="New" required />
+</form>
+
+<h2>Items</h2>
+<ul></ul>
+
+<button>Clear All</button>
+```
 
 ### Setting up JavaScript functionality
 
