@@ -254,12 +254,4 @@ In this tutorial, we learned how to make a simple to-do based application that c
 
 ----------------------------------------------
 
-We're going to make a very simple web app with plain JavaScript that will retrieve information from an API and display it on the page.
-There will be no server, dependencies, build tools, or complex . This is absolutely for beginners.
-
-We are going to write from scratch this simple web app that connects to a *Studio Ghibli API*, retrieves the data with JavaScript, and displays it on the front end of a website. This is not meant to be an extensive resource on APIs or REST - just the simplest possible example to get up and running that you can build from in the future. We'll learn:
-
-- What a *Web API* is.
-- Learn how to use the *HTTP* request *GET* with JavaScript
-- How create and display *HTML* elements with JavaScript.
 
