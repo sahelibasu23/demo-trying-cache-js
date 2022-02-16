@@ -181,25 +181,67 @@ We can get around this by using JSON.stringify() to convert a data array to a st
 We'll use JSON.parse() to convert the contents of localStorage back into something we can work with later in the data variable. 
 Put this code below all the constant declarations we set earlier.
 
+```
+// other constant declarations here
+let itemsArray = []
+
+localStorage.setItem('items', JSON.stringify(itemsArray))
+const data = JSON.parse(localStorage.getItem('items'))
+```
+
 In the form event listener, let's push any new input value into the array, then set the localStorage to the new, updated value.
 
+```
+// form event listener here
+e.preventDefault()
+
+itemsArray.push(input.value)
+localStorage.setItem('items', JSON.stringify(itemsArray))
+```
 We're going to loop through everything in our data variable above, which contains all the existing localStorage data in a form JavaScript can understand and work with, and we'll run the liMaker() again. This will display all existing stored information on the front end every time we open the app.
 
+```
+data.forEach((item) => {
+  liMaker(item)
+})
+```
 Lastly, we'll add a click event to the button that will clear all data from localStorage, as well as removing every child node from the ul.
+```
 
+```
 If all went well, everything will save to storage as well as appear on the front end, which you can check by testing localStorage in the console.
 
-Storage {items: "["Welcome","to","the","App"]", length: 1}
+`Storage {items: "["Welcome","to","the","App"]", length: 1}`
 
 There's one final problem: after closing the browser or reloading the page, all the existing information in localStorage is gone, and nothing remains on the front end. Why?
 
 Our itemsArray is being reset to an empty array every time the script runs. We could fix this by making a conditional statement that checks if localStorage already exists, such as in the below example.
-
+```
+button.addEventListener('click', function () {
+  localStorage.clear()
+  while (ul.firstChild) {
+    ul.removeChild(ul.firstChild)
+  }
+})
+```
 A little more concise would be to use a ternary operator to do the same thing.
+```
+let items
 
+if (localStorage.getItem('items')) {
+  items = JSON.parse(localStorage.getItem('items'))
+} else {
+  items = []
+}
+```
 With that, our app is complete! 
 
 Now when we enter in some information and refresh or close the browser window, the data will persist until you manually clear the data in Developer Tools (under Application -> Storage) or by running the localStorage.clear() command. 
+```
+let itemsArray = localStorage.getItem('items')
+  ? JSON.parse(localStorage.getItem('items'))
+  : []
+```
 
 # CONCLUSION
 In this tutorial, we learned how to make a simple to-do based application that can potentially be used to keep quick notes as a new tab page by using HTML5 web storage(local storage) and how to integrate it into a simple app.
