@@ -55,8 +55,8 @@ Now if you test localStorage in the console again, you'll find your new key and 
 
 If you want to get the value for a particular key, you'll use the getItem() method.
 
-`localStorage.getItem('key')
-value`
+`localStorage.getItem('key')`
+value
 
 Finally, you can remove the data with removeItem().
 
