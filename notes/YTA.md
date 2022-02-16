@@ -29,34 +29,34 @@ Local storage has a significantly higher storage limit (5MB vs 4KB) and doesn't 
 
 ### Here is an overview of localStorage methods.
 
-Method	Description
-setItem()	Add key and value to local storage
-getItem()	Retrieve a value by the key
-removeItem()	Remove an item by key
-clear()	Clear all storage
-You can test out what's in local storage by going to the JavaScript console and typing it in. Actually do this, don't just read it.
+# Table format
 
-localStorage
-Storage {length: 0}
-Adding some data to localStorage is as easy as using the setItem() method. I'll use a generic key and value for the names, but they can be any strings.
+| Method  | Description |
+| ------------- | ------------- |
+| setItem()  | Add key and value to local storage  |
+| getItem()  | Retrieve a value by the key  |
+| removeItem()  | Remove an item by key  |
+| clear()  | Clear all storage  |
+	
+You can test out what's in local storage by going to the JavaScript console and typing it in.
 
-localStorage.setItem('key', 'value')
+#### localStorage
+`Storage {length: 0}`
+Adding some data to localStorage is as easy as using the setItem() method. 
+I'll use a generic key and value for the names, but they can be any strings.
+`localStorage.setItem('key', 'value')`
 Now if you test localStorage in the console again, you'll find your new key and value.
-
-Storage {key: "value", length: 1}
+`Storage {key: "value", length: 1}`
 If you want to get the value for a particular key, you'll use the getItem() method.
-
-localStorage.getItem('key')
-value
+`localStorage.getItem('key')
+value`
 Finally, you can remove the data with removeItem().
-
-localStorage.removeItem('key')
+`localStorage.removeItem('key')`
 Using clear() will clear all local storage.
-
-localStorage.clear()
+`localStorage.clear()`
 Now we can begin setting up the app.
 
-Setting up the front end
+### Setting up the front end
 First, we'll create a simple HTML front end with index.html. I'm loading in Primitive (my minimalist CSS framework) for styles, because that's what I always use when I need a quick front end.
 
 index.html
